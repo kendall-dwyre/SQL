@@ -1,0 +1,7 @@
+# Here is a file where I can include some SQL code for reference.
+
+# If I want to run a query to figureo out the datatypes of a table I can run:
+
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'customers';
