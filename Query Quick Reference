@@ -1,5 +1,30 @@
 # Here is a file where I can include some SQL code for reference.
 
+# Query to Create a Table
+
+CREATE TABLE table_name (
+    column1_name DATA_TYPE [constraint1] [constraint2],
+    column2_name DATA_TYPE [constraint1] [constraint2],
+    ...
+    columnN_name DATA_TYPE [constraint1] [constraint2]
+);
+
+CREATE TABLE table_name (
+    id SERIAL PRIMARY KEY,                       -- Auto-incrementing primary key
+    text_column VARCHAR(255) NOT NULL,           -- Text column with a maximum length of 255 characters
+    number_column INTEGER NOT NULL,              -- Integer column that cannot be null
+    decimal_column NUMERIC(10, 2),               -- Decimal column with up to 10 digits and 2 decimal places
+    boolean_column BOOLEAN NOT NULL DEFAULT FALSE, -- Boolean column with default value
+    date_column DATE,                            -- Date column
+    time_column TIME,                            -- Time column
+    timestamp_column TIMESTAMP,                  -- Timestamp column
+    email VARCHAR(100) UNIQUE NOT NULL,          -- Unique email column
+    foreign_key_column INTEGER,                  -- Foreign key column
+    CHECK (number_column > 0),                   -- Check constraint for number_column
+    CONSTRAINT fk_foreign_key_column FOREIGN KEY (foreign_key_column) REFERENCES another_table (id) -- Foreign key constraint
+);
+
+
 # If I want to run a query to figureo out the datatypes of a table I can run:
 
 SELECT column_name, data_type
