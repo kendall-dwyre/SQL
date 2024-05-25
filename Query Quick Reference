@@ -30,3 +30,9 @@ CREATE TABLE table_name (
 SELECT column_name, data_type
 FROM information_schema.columns
 WHERE table_name = 'customers';
+
+# An example of how to import data from a directory into PostgreSQL
+
+COPY (FILLER) 
+FROM '(PLACE DIRECTORY HERE)'
+WITH (FORMAT CSV, HEADER);
