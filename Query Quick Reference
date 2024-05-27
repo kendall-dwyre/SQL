@@ -31,8 +31,25 @@ SELECT column_name, data_type
 FROM information_schema.columns
 WHERE table_name = 'customers';
 
-# An example of how to import data from a directory into PostgreSQL
+# Importing Data
+    # Create a Datatable 
+    # Example of something to create 
+
+CREATE TABLE (CREATED_TABLE) (
+    topic VARCHAR(255),
+    user_name VARCHAR(255),
+    repo_name VARCHAR(255),
+    repo_link VARCHAR(255),
+    star_count INT
+);
+
+    # Next, create an import statement to load the data from somewhere (likely your files)
 
 COPY (FILLER) 
 FROM '(PLACE DIRECTORY HERE)'
 WITH (FORMAT CSV, HEADER);
+
+    # Lastly, you could verify that what you have imported / loaded has worked correctly:
+
+SELECT *
+FROM (CREATED_TABLE)
