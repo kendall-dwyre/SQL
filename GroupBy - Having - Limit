@@ -1,0 +1,28 @@
+-- Selecting columns: product_category, total_sales, and total_orders
+SELECT
+    product_category,                     -- Category of the product
+    SUM(sales_amount) AS total_sales,     -- Total sales amount for the category
+    COUNT(order_id) AS total_orders       -- Total number of orders for the category
+FROM
+    orders                                -- From the 'orders' table
+WHERE
+    order_date BETWEEN '2023-01-01' AND '2023-12-31' -- Filter to include only orders placed in the year 2023
+GROUP BY
+    product_category                      -- Grouping results by product category
+HAVING
+    SUM(sales_amount) > 100000            -- Only include categories with total sales greater than $100,000
+ORDER BY
+    total_sales DESC                      -- Ordering results by total sales in descending order
+LIMIT
+    5                                     -- Limit the result to the top 5 product categories
+;
+
+-- Explanation:
+-- 1. SELECT: Specifies the columns to include in the result set. We are selecting the product_category, the total sales amount (total_sales), and the count of orders (total_orders).
+-- 2. FROM: Indicates the table to query data from, which in this case is the 'orders' table.
+-- 3. WHERE: Filters the rows to include only those where the order_date is between January 1, 2023, and December 31, 2023.
+-- 4. GROUP BY: Groups the results by the product_category. This means we aggregate the data for each product category separately.
+-- 5. HAVING: Filters the grouped results to include only those groups (product categories) where the total sales amount is greater than $100,000.
+-- 6. ORDER BY: Orders the results by the total_sales column in descending order, so the product categories with the highest total sales come first.
+-- 7. LIMIT: Limits the result set to only the top 5 product categories based on the criteria specified.
+
