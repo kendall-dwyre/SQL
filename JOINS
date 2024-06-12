@@ -1,0 +1,63 @@
+-------------------------------------------
+INNER JOIN
+-------------------------------------------
+# Only employees who are assigned to a department will be returned. 
+
+SELECT 
+    e.employee_id, 
+    e.employee_name, 
+    d.department_name 
+FROM 
+    employees e
+INNER JOIN 
+    departments d 
+ON 
+    e.department_id = d.department_id;
+
+-------------------------------------------
+LEFT JOIN
+-------------------------------------------
+# All employees will be returned, with their department if assigned
+
+SELECT 
+    e.employee_id, 
+    e.employee_name, 
+    d.department_name 
+FROM 
+    employees e
+LEFT JOIN 
+    departments d 
+ON 
+    e.department_id = d.department_id;
+
+-------------------------------------------
+RIGHT JOIN
+-------------------------------------------
+# All departments will be returned, with their employees if any are assigned
+
+SELECT 
+    e.employee_id, 
+    e.employee_name, 
+    d.department_name 
+FROM 
+    employees e
+RIGHT JOIN 
+    departments d 
+ON 
+    e.department_id = d.department_id;
+
+-------------------------------------------
+FULL OUTER JOIN
+-------------------------------------------
+# All employees and departments will be returned
+
+SELECT 
+    e.employee_id, 
+    e.employee_name, 
+    d.department_name 
+FROM 
+    employees e
+FULL OUTER JOIN 
+    departments d 
+ON 
+    e.department_id = d.department_id;
